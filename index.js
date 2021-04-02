@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const pass = "ArifulIslamRaju000";
+
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -11,9 +11,9 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+//////////////
 const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://freshValley:ArifulIslamRaju000@cluster0.yaeov.mongodb.net/freshVally?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.yaeov.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
