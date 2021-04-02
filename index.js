@@ -21,7 +21,7 @@ const client = new MongoClient(uri, {
 client.connect((err) => {
   const productsCollection = client.db("freshVally").collection("products");
   const odersCollection = client.db("freshVally").collection("oder");
-
+  /////////////Admain post/////////////////
   app.post("/addEvent", (req, res) => {
     const products = req.body;
     console.log("adding new event :", products);
@@ -39,7 +39,7 @@ client.connect((err) => {
     });
   });
 
-  ///////////////////////
+  //////////Client post /////////////
   app.post("/addOrderEvents", (req, res) => {
     const oder = req.body;
     console.log("adding new event :", oder);
@@ -49,7 +49,7 @@ client.connect((err) => {
       res.send(result.insertedCount > 0);
     });
   });
-  ////////////////
+
   app.get("/OrderEventss", (req, res) => {
     // console.log("niyaaa", req.query.email);
     odersCollection.find({ email: req.query.email }).toArray((err, items) => {
@@ -57,10 +57,9 @@ client.connect((err) => {
       res.send(items);
     });
   });
-  /////////////
-  // app.delete("/delete/:id", (req, res) => {
-  //   console.log(req.params.id);
-  // });
+
+  ///////////deleted ////////////
+
   app.delete("/delete/:id", (req, res) => {
     odersCollection
       .deleteOne({ _id: ObjectId(req.params.id) })
