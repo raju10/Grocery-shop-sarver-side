@@ -3,7 +3,7 @@ const app = express();
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const port = 1000;
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -70,4 +70,4 @@ client.connect((err) => {
   });
 });
 
-app.listen(1000);
+app.listen(process.env.PORT || port);
