@@ -40,7 +40,7 @@ client.connect((err) => {
   });
 
   ///////////////////////
-  app.post("/addEvents", (req, res) => {
+  app.post("/addOrderEvents", (req, res) => {
     const oder = req.body;
     console.log("adding new event :", oder);
 
@@ -50,7 +50,7 @@ client.connect((err) => {
     });
   });
   ////////////////
-  app.get("/eventss", (req, res) => {
+  app.get("/OrderEventss", (req, res) => {
     // console.log("niyaaa", req.query.email);
     odersCollection.find({ email: req.query.email }).toArray((err, items) => {
       console.log("form data base", items);
